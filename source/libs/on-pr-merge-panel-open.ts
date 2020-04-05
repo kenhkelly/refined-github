@@ -1,8 +1,8 @@
 // Memoization here is used to let onPrMergePanelOpen() be called multiple times without risking multiple attached handlers
 import mem from 'mem';
-import delegate, {DelegateSubscription, DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 
-const delegateHandler = mem((callback: EventListener) => (event: DelegateEvent) => {
+const delegateHandler = mem((callback: EventListener) => (event: delegate.DelegateEvent) => {
 	if (event.delegateTarget.matches('.open')) {
 		callback(event);
 	}
@@ -13,7 +13,7 @@ const sessionResumeHandler = mem((callback: EventListener) => async (event: Even
 	callback(event);
 });
 
-export default function (callback: EventListener): DelegateSubscription {
+export default function (callback: EventListener): delegate.DelegateSubscription {
 	document.addEventListener(
 		'session:resume',
 		sessionResumeHandler(callback)
@@ -24,7 +24,7 @@ export default function (callback: EventListener): DelegateSubscription {
 		delegateHandler(callback)
 	);
 
-	// Imitate a DelegateSubscription for this event as well
+	// Imitate a delegate.DelegateSubscription for this event as well
 	return {
 		destroy() {
 			toggleSubscription.destroy();

@@ -1,9 +1,9 @@
 import select from 'select-dom';
-import delegate, {DelegateSubscription, DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 
 const discussionsWithListeners = new WeakSet();
 const handlers = new Set<VoidFunction>();
-const delegates = new Set<DelegateSubscription>();
+const delegates = new Set<delegate.DelegateSubscription>();
 const observer = new MutationObserver(run);
 
 function run(): void {
@@ -13,7 +13,7 @@ function run(): void {
 
 // The form is detached just before the `page:loaded` event is triggered so the event won’t bubble up and `delegate` won’t catch it.
 // This intermediate handler is required to catch the `page:loaded` event on the detached element.
-function paginationSubmitHandler({delegateTarget: form}: DelegateEvent): void {
+function paginationSubmitHandler({delegateTarget: form}: delegate.DelegateEvent): void {
 	form.addEventListener('page:loaded', run, {once: true});
 }
 

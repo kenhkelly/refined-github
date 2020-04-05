@@ -1,8 +1,8 @@
 import select from 'select-dom';
-import delegate, {DelegateEvent, DelegateEventHandler} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 
-export function listenToCommentFields(callback: DelegateEventHandler<KeyboardEvent, HTMLTextAreaElement>): void {
+export function listenToCommentFields(callback: delegate.DelegateEventHandler<KeyboardEvent, HTMLTextAreaElement>): void {
 	delegate<HTMLTextAreaElement, KeyboardEvent>('.js-comment-field, #commit-description-textarea', 'keydown', event => {
 		const field = event.delegateTarget;
 
@@ -18,7 +18,7 @@ export function listenToCommentFields(callback: DelegateEventHandler<KeyboardEve
 	});
 }
 
-function handler(event: DelegateEvent<KeyboardEvent, HTMLTextAreaElement>): void {
+function handler(event: delegate.DelegateEvent<KeyboardEvent, HTMLTextAreaElement>): void {
 	const field = event.delegateTarget;
 
 	if (event.key === 'Escape') {

@@ -2,14 +2,14 @@ import './open-all-notifications.css';
 import React from 'dom-chef';
 import select from 'select-dom';
 import linkExternalIcon from 'octicon/link-external.svg';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 import {groupButtons} from '../libs/group-buttons';
 
 const confirmationRequiredCount = 10;
 const unreadNotificationsClass = '.unread .js-notification-target';
 
-function openNotifications({delegateTarget}: DelegateEvent): void {
+function openNotifications({delegateTarget}: delegate.DelegateEvent): void {
 	const container = delegateTarget.closest('.boxed-group, .notification-center');
 
 	// Ask for confirmation

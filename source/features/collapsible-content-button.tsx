@@ -1,6 +1,6 @@
 import React from 'dom-chef';
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import insertText from 'insert-text-textarea';
 import foldDownIcon from 'octicon/fold-down.svg';
 import features from '../libs/features';
@@ -37,7 +37,7 @@ function init(): void {
 	}
 }
 
-function addContentToDetails(event: DelegateEvent<MouseEvent, HTMLButtonElement>): void {
+function addContentToDetails(event: delegate.DelegateEvent<MouseEvent, HTMLButtonElement>): void {
 	const field = event.delegateTarget.form!.querySelector('textarea')!;
 	const selection = field.value.slice(field.selectionStart, field.selectionEnd);
 

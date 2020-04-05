@@ -1,9 +1,9 @@
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 import anchorScroll from '../libs/anchor-scroll';
 
-type EventHandler = (event: DelegateEvent<MouseEvent, HTMLElement>) => void;
+type EventHandler = (event: delegate.DelegateEvent<MouseEvent, HTMLElement>) => void;
 
 function init(): void {
 	// Collapsed comments in PR conversations and files

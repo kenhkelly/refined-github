@@ -2,7 +2,7 @@ import './warning-for-disallow-edits.css';
 import React from 'dom-chef';
 import select from 'select-dom';
 import oneTime from 'onetime';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 
 const getWarning = oneTime(() => (
@@ -23,7 +23,7 @@ function update(checkbox: HTMLInputElement): void {
 	}
 }
 
-function toggleHandler(event: DelegateEvent<UIEvent, HTMLInputElement>): void {
+function toggleHandler(event: delegate.DelegateEvent<UIEvent, HTMLInputElement>): void {
 	update(event.delegateTarget);
 }
 

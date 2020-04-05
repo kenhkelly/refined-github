@@ -1,9 +1,9 @@
 import './extend-diff-expander.css';
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 
-function expandDiff(event: DelegateEvent): void {
+function expandDiff(event: delegate.DelegateEvent): void {
 	// Skip if the user clicked directly on the icon
 	if (!(event.target as Element).closest('.js-expand')) {
 		select<HTMLAnchorElement>('.js-expand', event.delegateTarget)!.click();

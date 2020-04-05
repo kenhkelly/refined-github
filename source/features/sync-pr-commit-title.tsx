@@ -1,6 +1,6 @@
 import React from 'dom-chef';
 import select from 'select-dom';
-import delegate, {DelegateSubscription} from 'delegate-it';
+import delegate from 'delegate-it';
 import insertTextTextarea from 'insert-text-textarea';
 import features from '../libs/features';
 import onPrMergePanelOpen from '../libs/on-pr-merge-panel-open';
@@ -100,7 +100,7 @@ function disableSubmission(): void {
 	getUI().remove(); // Hide note
 }
 
-let listeners: DelegateSubscription[];
+let listeners: delegate.DelegateSubscription[];
 function init(): void {
 	listeners = [
 		onPrMergePanelOpen(updateCommitTitle),

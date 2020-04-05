@@ -2,7 +2,7 @@ import React from 'dom-chef';
 import select from 'select-dom';
 import gitBranch from 'octicon/git-branch.svg';
 import insertTextTextarea from 'insert-text-textarea';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import * as api from '../libs/api';
 import features from '../libs/features';
 import loadingIcon from '../libs/icon-loading';
@@ -35,7 +35,7 @@ async function createBranch(newBranchName: string, baseSha: string): Promise<tru
 	return response.ok || response.message;
 }
 
-async function cloneBranch(event: DelegateEvent<MouseEvent, HTMLButtonElement>): Promise<void> {
+async function cloneBranch(event: delegate.DelegateEvent<MouseEvent, HTMLButtonElement>): Promise<void> {
 	const cloneButton = event.delegateTarget;
 	const branchElement = cloneButton.closest<HTMLElement>('[data-branch-name]')!;
 

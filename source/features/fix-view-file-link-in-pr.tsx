@@ -1,8 +1,8 @@
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 
-function handleMenuOpening(event: DelegateEvent): void {
+function handleMenuOpening(event: delegate.DelegateEvent): void {
 	const dropdown = event.delegateTarget.nextElementSibling!;
 
 	// Only if it's not already there

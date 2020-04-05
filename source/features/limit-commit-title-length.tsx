@@ -1,6 +1,6 @@
 import './limit-commit-title-length.css';
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 import onPrMergePanelOpen from '../libs/on-pr-merge-panel-open';
 
@@ -9,7 +9,7 @@ const fieldSelector = [
 	'#merge_title_field' // PR merge message field
 ].join();
 
-function validateInput({delegateTarget: inputField}: DelegateEvent<InputEvent, HTMLInputElement>): void {
+function validateInput({delegateTarget: inputField}: delegate.DelegateEvent<InputEvent, HTMLInputElement>): void {
 	inputField.setCustomValidity(inputField.value.length > 72 ? `The title should be maximum 72 characters, but is ${inputField.value.length}` : '');
 }
 

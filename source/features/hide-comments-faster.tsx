@@ -1,6 +1,6 @@
 import React from 'dom-chef';
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 
 function generateSubmenu(hideButton: Element): void {
@@ -53,11 +53,11 @@ function toggleSubMenu(hideButton: Element, show: boolean): void {
 	select('form.js-comment-minimize', dropdown)!.classList.toggle('d-none', !show);
 }
 
-function resetDropdowns(event: DelegateEvent): void {
+function resetDropdowns(event: delegate.DelegateEvent): void {
 	toggleSubMenu(event.delegateTarget, false);
 }
 
-function showSubmenu(event: DelegateEvent): void {
+function showSubmenu(event: delegate.DelegateEvent): void {
 	generateSubmenu(event.delegateTarget);
 	toggleSubMenu(event.delegateTarget, true);
 

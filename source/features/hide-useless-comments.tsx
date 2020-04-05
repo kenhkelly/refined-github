@@ -1,7 +1,7 @@
 import './hide-useless-comments.css';
 import React from 'dom-chef';
 import select from 'select-dom';
-import delegate, {DelegateEvent} from 'delegate-it';
+import delegate from 'delegate-it';
 import features from '../libs/features';
 
 function init(): void {
@@ -48,7 +48,7 @@ function init(): void {
 	}
 }
 
-function unhide(event: DelegateEvent<MouseEvent, HTMLButtonElement>): void {
+function unhide(event: delegate.DelegateEvent<MouseEvent, HTMLButtonElement>): void {
 	for (const comment of select.all('.rgh-hidden-comment')) {
 		comment.hidden = false;
 	}
